@@ -126,3 +126,47 @@ flask run --reload
 ```
 
 The `--reload` flag will detect file changes and restart the server automatically.
+
+## Alternatively with Docker
+
+Build the image and run a container
+
+```bash
+docker build -t flask-app-aws .
+```
+
+list the images
+
+```bash
+docker images ls
+```
+
+Run the container
+
+```bash
+docker run -p 80:8080 flask-app-aws
+```
+or
+
+```bash
+docker run -p 80:8080 -e JWT_SECRET="secrethere" -e LOG_LEVEL='DEBUG' flask-app-aws
+```
+
+or
+
+```bash
+docker run --name myContainer-name --env-file=.env -p 80:8080 flask-app-aws 
+```
+
+remove the container
+
+```bash
+docker rm -f $(docker ps -aq) 
+```
+
+Check the container endpoints
+
+```bash
+curl --request GET 'http://localhost:80/'
+```
+
