@@ -416,3 +416,5 @@ Resources:
 # aws ssm get-parameter --name JWT_SECRET
 # delete
 # aws ssm delete-parameter --name JWT_SECRET
+
+# kubectl get services simple-jwt-api -o wide

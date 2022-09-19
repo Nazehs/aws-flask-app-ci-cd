@@ -170,3 +170,12 @@ Check the container endpoints
 curl --request GET 'http://localhost:80/'
 ```
 
+Test the aws deployed app
+
+```bash
+export TOKEN=`curl -d '{"email":"johndoe@gmail.com","password":"password@21387"}' -H "Content-Type: application/json" -X POST a71e8c6705b2b430eb5f6a9e0c167940-225081139.us-east-2.elb.amazonaws.com/auth  | jq -r '.token'`
+```
+
+```bash
+curl --request GET 'a71e8c6705b2b430eb5f6a9e0c167940-225081139.us-east-2.elb.amazonaws.com/contents' -H "Authorization: Bearer ${TOKEN}" | jq 
+``` 
